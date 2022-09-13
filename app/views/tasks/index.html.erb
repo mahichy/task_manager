@@ -1,5 +1,13 @@
 <h1>Tasks#index</h1>
+
 <%= link_to('Back_to_homepage', { controller: 'main', action: 'index'}) %><br>
+
+
+<% if @page == 1 %>
+	<h2>Task list </h2>
+<%end%>
+
+
 
 <ul>
 <% @tasks.each do |task| %>
