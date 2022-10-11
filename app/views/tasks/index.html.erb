@@ -1,18 +1,105 @@
-<h1>Tasks#index</h1>
+<%= link_to("Back to home page", tasks_path, class: 'back-link' )%>
 
-<%= link_to('Back_to_homepage', { controller: 'main', action: 'index'}) %><br>
+<div class="tasks index">
+	<h2>Task</h2>
+
+	<%= link_to("Add New Task", '#', class: 'action new')%>
+
+	<table class="listing" summary="Task list" style="width: 100%;">
+		<tr class="header">
+			<th>#</th>
+			<th>Task</th>
+			<th>Completed</th>
+			<th>Category</th>
+			<th>Actions</th>
+		</tr>
+		<% @tasks.each do |task|%>
+		<tr>
+			<td><%= task.position %></td>
+			<td><%= task.name %></td>
+			<td><%= task.completed? ? 'Yes' : 'No' %></td>
+			<td><%= task.category&.name || '_' %></td>
+			<td class="actions">
+				<%= link_to("Show", task_path(task), class: 'action show')%>
+				<%= link_to("Edit", '#', class: 'action edit')%>
+				<%= link_to("Delete", '#', class: 'action delete')%>
+			</td>
+		</tr>	
+		<% end -%>	
+	</table>
 
 
-<% if @page == 1 %>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>Tasks#index</h1>
+
+<%#= link_to('Back_to_homepage', { controller: 'main', action: 'index'}) %><br>
+
+
+<%# if @page == 1 %>
 	<h2>Task list </h2>
-<%end%>
+<%#end%>
 
 
 
 <ul>
-<% @tasks.each do |task| %>
-<li><%= task %></li>	 
-<% end %>
+<%# @tasks.each do |task| %>
+<li><%#= task %></li>	 
+<%# end %>
 </ul>
 
-<%=link_to('First task', task_path(1))%>
+<%#=link_to('First task', task_path(1))%> -->
